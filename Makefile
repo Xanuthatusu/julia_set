@@ -20,5 +20,5 @@ run:
 	./image
 
 clean:
-	rm *.escape *.colors *.ppm escape colors image
+	rm *.escape *.colors *.ppm *.png escape colors image
 
