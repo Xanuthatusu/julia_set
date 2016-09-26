@@ -5,26 +5,20 @@ int main() {
 	int width, height, value;
 	int count = 0;
 
-	char input_filename[64], output_filename[64];
-
 	float change, max_iter, max_color;
 
 	std::cout << "Maximum Color? ";
 	std::cin >> max_color;
-	std::cout << "Input filename? ";
-	std::cin >> input_filename;
-	std::cout << "Output filename? ";
-	std::cin >> output_filename;
 
 	std::ifstream input_file;
-	input_file.open(input_filename);
+	input_file.open("escape.escape");
 
 	input_file >> width;
 	input_file >> height;
 	input_file >> max_iter;
 
 	std::ofstream output_file;
-	output_file.open(output_filename);
+	output_file.open("colors.colors");
 
 	output_file << width << " " << height << " " << max_color << std::endl;
 

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
+#include <string>
 
 void fillData(double *args) {
 	std::cout << "Grid width? ";
@@ -27,13 +28,19 @@ int julia(double x, double y, double max_iter, double a, double b) {
 	return count;
 }
 
-int main() {
+int main(int argc, char** argv) {
+	int i;
+	for(i=1; i < argc; i++) {
+		std::cout << argv[i] << std::endl;
+		std::string argument = std::string(argv[i]);
+		if (argument == "-w") {
+			std::cout << argv[i+1] << std::endl;
+		}
+	}
+
 	double args[5];
-	char filename[64];
 	fillData(args);
-	std::cout << "Output filename? ";
-	std::cin >> filename;
-	std::ofstream fout(filename);
+	std::ofstream fout("escape.escape");
 
 	fout << args[0] << " " << args[1] << " " << args[4] << std::endl;
 

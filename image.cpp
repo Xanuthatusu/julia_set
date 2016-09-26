@@ -2,24 +2,17 @@
 #include <fstream>
 
 int main() {
-	char input_filename[64], output_filename[64];
-	
 	int width, height, max_color, r, g, b;
 
-	std::cout << "Input filename? ";
-	std::cin >> input_filename;
-	std::cout << "Output filename? ";
-	std::cin >> output_filename;
-
 	std::ifstream input_file;
-	input_file.open(input_filename);
+	input_file.open("colors.colors");
 
 	input_file >> width;
 	input_file >> height;
 	input_file >> max_color;
 
 	std::ofstream output_file;
-	output_file.open(output_filename, std::ofstream::binary);
+	output_file.open("image.ppm", std::ofstream::binary);
 
 	output_file << "P6 " << width << " " << height << " " << max_color << std::endl;
 
