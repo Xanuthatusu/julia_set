@@ -5,10 +5,7 @@ int main() {
 	int width, height, value;
 	int count = 0;
 
-	float change, max_iter, max_color;
-
-	std::cout << "Maximum Color? ";
-	std::cin >> max_color;
+	float change, max_iter;
 
 	std::ifstream input_file;
 	input_file.open("escape.escape");
@@ -20,19 +17,15 @@ int main() {
 	std::ofstream output_file;
 	output_file.open("colors.colors");
 
-	output_file << width << " " << height << " " << max_color << std::endl;
+	output_file << width << " " << height << " " << "255" << std::endl;
 
-	if(max_color > 255.0) {
-		change = 255.0 / max_iter;
-	} else {
-		change = max_color / max_iter;
-	}
+	change = 255.0 / max_iter;
 
 	while(input_file >> value) {
 		if(value == max_iter) {
 			output_file << "0 0 0 ";
 		} else {
-			output_file << (int)value * (int)change << " 77 255 ";
+			output_file << (int)(value * change) << " 77 255 ";
 		}
 
 		count++;
