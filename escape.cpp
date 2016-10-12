@@ -20,8 +20,8 @@ int julia(double x, double y, double max_iter, double a, double b) {
 	int count;
 	for (count=-1; count < max_iter && distance < 2.0; count++) {
 		distance = std::sqrt(x*x + y*y);
-		double new_x = x*x - y*y + a;
-		y = 2*x*y + b;
+		double new_x = exp(x) * cos(y) + a;
+		y = exp(x) * sin(y) + b;
 		x = new_x;
 	}
 	return count;
